@@ -66,7 +66,15 @@ class ViewController: UIViewController {
         backmusicPlayer.stop()
         
     }
-    
+    fileprivate func SoundPlayer(player:inout AVAudioPlayer, path: URL, count: Int){
+        do {
+            player = try AVAudioPlayer(contentsOf: path, fileTypeHint: nil)
+            player.numberOfLoops = count
+            player.play()
+        } catch {
+            print("共通再生処理でエラーが発生しました")
+        }
+    }
     
 }
 
