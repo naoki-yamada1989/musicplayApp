@@ -22,12 +22,7 @@ class ViewController: UIViewController {
     var cymbalsPlayer = AVAudioPlayer()
     
     @IBAction func cymbals(_ sender: Any) {
-        do {
-        cymbalsPlayer = try AVAudioPlayer(contentsOf: cymbalsPath, fileTypeHint: nil)
-        cymbalsPlayer.play()
-        } catch {
-            print("シンバルでエラーが発生した")
-        }
+        SoundPlayer(player: &cymbalsPlayer, path: cymbalsPath, count: 0)
     }
     
     //ドラム用の音源ファイルを指定
